@@ -65,6 +65,14 @@ public:
    */
   void UpdateEKF(const Eigen::VectorXd &z);
 
+private:
+  /**
+   * Upates teh State Covariance Matrix.
+   * This is a private function called by Update and UpdateEKF functions.
+   * @param y is the update vector computed by Update() and UpdateEKF()
+   * functions. 
+   */
+   void UpdateStateCovariance(Eigen::VectorXd y);
 };
 
 #endif /* KALMAN_FILTER_H_ */

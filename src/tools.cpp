@@ -16,10 +16,10 @@ VectorXd Tools::CalculateRMSE(const vector<VectorXd> &estimations,
 
   unsigned int est_size = estimations.size();
   unsigned int ground_truth_size = ground_truth.size(); 
-  cout << "RMSE: est_size:" << est_size << "grnd_truth_size:" 
-       << ground_truth_size << endl; 
+  //cout << "RMSE: est_size:" << est_size << "grnd_truth_size:" 
+    //   << ground_truth_size << endl; 
  
-  // In the case any error in this function, error_rmse is used to 
+  // In the case any error in this function, default rmse value is used to 
   // return from this function. 
   VectorXd rmse(4);
   rmse << 0,0,0,0;
@@ -30,14 +30,15 @@ VectorXd Tools::CalculateRMSE(const vector<VectorXd> &estimations,
   if( (est_size != ground_truth_size ) ||
        (est_size == 0 ) ) { 
      
-    cout << "Invalid estimation or ground_truth data" << endl;
+    cout << "Invalid estimation size: " << est_size << 
+            "OR ground_truth size: " << ground_truth_size << endl;
     return rmse;
 
   }
 
   // Accumulate squared residuals
 
- cout << "RMSE: before for" << endl;
+  //cout << "RMSE: before for" << endl;
  
  for( unsigned int i=0; i < est_size; ++i ) {
     
